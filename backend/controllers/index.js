@@ -1,9 +1,9 @@
 const addFile=(req,res)=>{
-    const fileContent=req.body
+    // const {description}=req.body
+    console.log(req.body)
     try {
-        console.log("HELLO")
-        console.log(fileContent)
-        return res.status(200).json({message:'File received'})
+        // console.log(description)
+        return res.status(200).json({message:'File received',file:req.body})
     } catch (error) {
         return res.status(500).json({message:'Server Error'})
     }
