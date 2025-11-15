@@ -1,6 +1,6 @@
 const mongoose=require('mongoose')
 const candidateModel=new mongoose.Schema({
-    Name:{
+    name:{
         type:String,
         required:true
     },
