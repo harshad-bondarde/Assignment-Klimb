@@ -15,8 +15,8 @@ function App() {
   const [success,setSuccess]=useState<boolean>(false);
   const [loading,setLoading]=useState<boolean>(false);
 
-  console.log(file)
-  console.log(fileData)
+  // console.log(file)
+  // console.log(fileData)
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files?.[0];
     if (!files) return;
@@ -25,7 +25,7 @@ function App() {
 
     reader.onload = (event) => {
       const arrayBuffer = event.target?.result;
-      console.log(arrayBuffer)
+      // console.log(arrayBuffer)
       if (!arrayBuffer) return;
 
       const workbook = XLSX.read(arrayBuffer, { type: "array" });
@@ -34,7 +34,7 @@ function App() {
         raw: false,
       });
       setFileData(jsonData);
-      console.log("Excel JSON data:", jsonData);
+      // console.log("Excel JSON data:", jsonData);
     };
 
     reader.readAsArrayBuffer(files); 
@@ -42,7 +42,7 @@ function App() {
   };
 
   const handleOnclick=async()=>{
-    console.log(fileData)
+    // console.log(fileData)
     try {
       setLoading(true);
       const response= await axios.post(`${url}/api/v1/upload`,
@@ -85,7 +85,7 @@ function App() {
             <div className=''>
               { !success ? 
                   <>
-                    <input type="file" id="file" accept='file/*' disabled={loading} className='hidden' onChange={handleFileChange}/>
+                    <input type="file" id="file" accept=".xlsx,.xls" disabled={loading} className='hidden' onChange={handleFileChange}/>
                     <label 
                       htmlFor='file'
                       className='h-44 w-full border-2 border-gray-400 p-7 flex justify-center rounded shadow-md bg-gray-100 mt-5 cursor-pointer'>
@@ -96,9 +96,9 @@ function App() {
                             :
                             <div className='flex flex-col gap-y-1 items-center'>
                               <span className='ml-3 mt-1'>{file.name}</span>
-                              <button onClick={()=>{handleOnclick()}} type="submit" disabled={loading} className='bg-green-500 cursor-pointer w-32 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'>
+                              <button onClick={()=>{handleOnclick()}} type="submit" disabled={loading} className='bg-green-500 text-center flex justify-center items-center cursor-pointer w-32 hover:bg-green-700 text-white font-bold py-2 px-4 rounded'>
                                       { !loading ?
-                                          "Submit"
+                                          <span>Submit</span>
                                           :
                                           <Spinner/>
                                       }
