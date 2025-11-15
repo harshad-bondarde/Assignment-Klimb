@@ -44,8 +44,8 @@ function App() {
   const handleOnclick=async()=>{
     console.log(fileData)
     try {
-      // const response= await axios.post(`${url}/api/v1/upload`,
-      const response= await axios.post(`http://localhost:3000/api/v1/upload`,
+      setLoading(true);
+      const response= await axios.post(`${url}/api/v1/upload`,
         fileData
       )
       console.log(response.data)
