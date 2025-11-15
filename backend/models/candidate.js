@@ -1,31 +1,46 @@
 const mongoose=require('mongoose')
 const candidateModel=new mongoose.Schema({
-    fullName:{
+    Name:{
         type:String,
         required:true
     },
-    username:{
+    email:{
         type:String,
         required:true,
         unique:true
     },
-    password:{
+    mobileNo:{
         type:String,
         required:true
     },
-    profilePhoto:{
+    dateOfBirth:{
+        type:Date,
+        required:true
+    },
+    workExperience:{
         type:String,
         default:""
     },
-    gender:{
+    resumeTitle:{
         type:String,
-        anum:['male','female'],
         required:true
     },
-    contacts:[{
-        type:mongoose.Schema.Types.ObjectId,
-        ref:"User"        
-    }]
+    currentLocation:{
+        type:String,
+        required:true
+    },
+    postalAddress:{
+        type:String,
+        required:true
+    },
+    currentEmployer:{
+        type:String,
+        required:true
+    },
+    currentDesignation:{
+        type:String,
+        required:true
+    },
 },{
     timestamps:true
 })
