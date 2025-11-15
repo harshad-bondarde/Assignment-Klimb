@@ -15,7 +15,6 @@ const candidateModel=new mongoose.Schema({
     },
     dateOfBirth:{
         type:Date,
-        required:true
     },
     workExperience:{
         type:String,
@@ -23,23 +22,18 @@ const candidateModel=new mongoose.Schema({
     },
     resumeTitle:{
         type:String,
-        required:true
     },
     currentLocation:{
         type:String,
-        required:true
     },
     postalAddress:{
         type:String,
-        required:true
     },
     currentEmployer:{
         type:String,
-        required:true
     },
     currentDesignation:{
         type:String,
-        required:true
     },
 },{
     timestamps:true
