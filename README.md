@@ -5,7 +5,9 @@
 
 ## ✨ Features
 
-- Upload .xlsx or xls files 
+- Upload .xlsx or xls files
+- Organized backend with modular routes, controllers, and database connection.
+- Large JSON payload support with a limit of 50MB.
 ---
 
 ## 🧠 Tech Stack
