@@ -24,7 +24,7 @@ app.use("/api/v1",mainRoutes)
 
 if(process.env.MODE=='production'){
     app.use(express.static(path.join(dir,"/frontend/dist")))
-    app.get("/.*/",(req,res)=>{
+    app.get("*",(req,res)=>{
         res.sendFile(path.join(dir,"frontend","dist","index.html"))
     })
 }
