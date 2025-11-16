@@ -25,15 +25,16 @@ const addFile = async (req, res) => {
                 // console.log(record)
                 // console.log("----------------")
 
-                const existingWithEmail = await Candidate.findOne({ email: record.email });
-                if (existingWithEmail) {
-                    return callback({ type: "duplicate", record });
-                }
-
                 const existingCandidate = await Candidate.findOne(record);
                 if (existingCandidate) {
                     return callback(); 
                 }
+                const existingWithEmail = await Candidate.findOne({ email: record.email });
+                if (existingWithEmail) {
+                    return callback({ type: "duplicate", record });
+                }
+                // console.log(existingCandidate.email)
+
 
                 await Candidate.create(record);
                 callback();
